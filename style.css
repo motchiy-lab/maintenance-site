@@ -1,0 +1,359 @@
+/* ==========================================
+   CSS Variables & Reset
+   ========================================== */
+:root {
+    --primary-color: #504E7F;
+    --text-color: #333333;
+    --bg-color: #eeeeee;
+    --white: #ffffff;
+    --transition: 0.25s ease;
+
+    /* Extended helper variables for modern UI */
+    --primary-light: rgba(80, 78, 127, 0.1);
+    --primary-medium: rgba(80, 78, 127, 0.6);
+    --text-muted: #666666;
+    --border-color: #e0e0e0;
+
+    /* Maintenance Badge Colors */
+    --badge-regular: #4a90e2;
+    --badge-emergency: #e24a4a;
+    --badge-update: #2ecc71;
+
+    --shadow: 0 15px 35px rgba(0, 0, 0, 0.05), 0 5px 15px rgba(0, 0, 0, 0.03);
+    --border-radius: 16px;
+    --font-sans: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   Main Container & Card
+   ========================================== */
+.container {
+    width: 100%;
+    max-width: 600px;
+    perspective: 1000px;
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 40px 30px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Top decorative line colored with primary */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary-color), #7471b0);
+}
+
+/* ==========================================
+   Header & Animations
+   ========================================== */
+.header-icon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px auto;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gear-main {
+    width: 64px !important;
+    height: 64px !important;
+    animation: rotateClockwise 8s linear infinite;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   Badges (Dynamic status)
+   ========================================== */
+.badge-container {
+    margin-bottom: 16px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--white);
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.badge svg, .badge i {
+    width: 16px !important;
+    height: 16px !important;
+    stroke-width: 2.5;
+    flex-shrink: 0;
+}
+
+.badge-regular { background-color: var(--badge-regular); }
+.badge-emergency { background-color: var(--badge-emergency); }
+.badge-update { background-color: var(--badge-update); }
+
+/* ==========================================
+   Typography
+   ========================================== */
+h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.reason-text {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    text-align: left;
+    background-color: #fafafa;
+    padding: 16px 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+}
+
+/* ==========================================
+   Progress Bar & Time info
+   ========================================== */
+.time-box {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: left;
+}
+
+.time-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-color);
+    margin-bottom: 12px;
+}
+
+.time-row:last-child {
+    margin-bottom: 0;
+}
+
+.time-row i {
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.progress-container {
+    margin-top: 14px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    transition: width var(--transition);
+}
+
+/* ==========================================
+   Countdown Timer
+   ========================================== */
+.countdown-container {
+    margin-bottom: 28px;
+}
+
+.countdown-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.countdown-digits {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.digit-box {
+    background-color: #f5f5f7;
+    border-radius: 8px;
+    padding: 10px 14px;
+    min-width: 65px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.digit-num {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+}
+
+.digit-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+/* ==========================================
+   Social & Contact Links
+   ========================================== */
+.links-container {
+    border-top: 1px solid var(--border-color);
+    padding-top: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all var(--transition);
+    cursor: pointer;
+}
+
+.btn-link:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(80, 78, 127, 0.1);
+}
+
+.btn-link i {
+    width: 16px;
+    height: 16px;
+}
+
+/* ==========================================
+   Footer Info
+   ========================================== */
+.footer {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ==========================================
+   Animations Definitions
+   ========================================== */
+@keyframes rotateClockwise {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounterClockwise {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   Responsive adjustments
+   ========================================== */
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .digit-box {
+        min-width: 55px;
+        padding: 8px 10px;
+    }
+
+    .digit-num {
+        font-size: 20px;
+    }
+
+    .btn-link {
+        width: 100%;
+        justify-content: center;
+    }
+}

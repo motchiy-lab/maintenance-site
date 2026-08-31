@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メンテナンス - Motchiy Server</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.png">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+
+            <!-- Animated Icon Header -->
+            <div class="header-icon">
+                <i data-lucide="settings" class="gear-main"></i>
+            </div>
+
+            <!-- Dynamic Badge -->
+            <div class="badge-container">
+                <span id="maintenance-badge" class="badge">
+                    <!-- JavaScriptによってアイコンとテキストが動的に挿入されます -->
+                </span>
+            </div>
+
+            <!-- Dynamic Heading -->
+            <h1 id="maintenance-title">メンテナンスのお知らせ</h1>
+
+            <!-- Maintenance Reason -->
+            <div id="maintenance-reason" class="reason-text">
+                システムの更新を行っています。ご不便をおかけしますが、完了までしばらくお待ちください。
+            </div>
+
+            <!-- Detailed Explanation -->
+            <div id="detail-container" class="detail-container" style="text-align: left; margin-bottom: 28px; padding: 0 10px;">
+                <div style="font-weight: bold; font-size: 14px; margin-bottom: 8px;">詳細な内容:</div>
+                <div id="maintenance-detail" style="font-size: 14px; color: var(--text-muted);">
+                    <!-- JavaScriptで動的に挿入されます -->
+                </div>
+            </div>
+
+            <!-- Time & Progress Info Box -->
+            <div class="time-box">
+                <div class="time-row">
+                    <i data-lucide="calendar"></i>
+                    <div>
+                        <strong>期間:</strong>
+                        <span id="maintenance-period">確認中...</span>
+                        <p style="font-size: 11px; color: var(--text-muted); margin-top: 2px; font-style: italic;">
+                            ※作業状況により前後する場合があります。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Dynamic Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <span>進捗状況</span>
+                        <span id="progress-percent">0%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Countdown Timer -->
+            <div id="countdown-area" class="countdown-container">
+                <div id="countdown-label" class="countdown-label">メンテナンス終了まで</div>
+                <div class="countdown-digits">
+                    <div class="digit-box">
+                        <div id="days" class="digit-num">00</div>
+                        <div class="digit-label">日</div>
+                    </div>
+                    <div class="digit-box">
+                        <div id="hours" class="digit-num">00</div>
+                        <div class="digit-label">時間</div>
+                    </div>
+                    <div class="digit-box">
+                        <div id="minutes" class="digit-num">00</div>
+                        <div class="digit-label">分</div>
+                    </div>
+                    <div class="digit-box">
+                        <div id="seconds" class="digit-num">00</div>
+                        <div class="digit-label">秒</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Links & Socials -->
+            <div id="links-area" class="links-container">
+                <!-- Links will be generated here -->
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                &copy; <span id="current-year">2026</span> Motchiy Server. All rights reserved.
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
