@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } else if (MAINTENANCE_CONFIG.type === "update") {
     badgeClass = "badge-update";
     badgeIconName = "sparkles";
-    badgeText = "アップデート中";
+    badgeText = "アップデート";
   }
 
   badgeEl.className = `badge ${badgeClass}`;
