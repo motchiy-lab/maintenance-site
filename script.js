@@ -9,7 +9,7 @@ const MAINTENANCE_CONFIG = {
   // 3. 実施日時 (YYYY/MM/DD HH:mm 形式)
   // 緊急メンテナンス ('emergency') の場合はこれらは表示されません
   startTime: "2026/09/05 17:00",
-  endTime: "2026/09/06 15:00",
+  endTime: "2026/09/06 18:00",
 
   // 4. 外部リンク設定
   links: [
